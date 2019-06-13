@@ -68,8 +68,8 @@ uint32_t no_ignition_cnt = 0;
 bool connected_once = false;
 bool ignition_last = false;
 
-char *serial;
-char *fw_ver;
+unsigned char *serial;
+unsigned char *fw_ver;
 
 pthread_t safety_setter_thread_handle = -1;
 pthread_t pigeon_thread_handle = -1;
