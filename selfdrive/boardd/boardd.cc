@@ -71,8 +71,8 @@ bool ignition_last = false;
 unsigned char *serial;
 unsigned char *fw_ver;
 
-char *serial;
-char *fw_ver;
+unsigned char *serial;
+unsigned char *fw_ver;
 
 pthread_t safety_setter_thread_handle = -1;
 pthread_t pigeon_thread_handle = -1;
