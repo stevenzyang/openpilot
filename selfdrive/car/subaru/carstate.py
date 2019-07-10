@@ -171,7 +171,3 @@ class CarState():
     elif self.car_fingerprint in (CAR.OUTBACK, CAR.LEGACY):
       self.steer_not_allowed = cp.vl["Steering_Torque"]["LKA_Lockout"]
       self.body_info_msg = copy.copy(cp_cam.vl["BodyInfo"])
-<<<<<<< HEAD
-
-=======
->>>>>>> merge subaru preglobal support, other minor cleanups
