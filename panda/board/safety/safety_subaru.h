@@ -111,7 +111,7 @@ static int subaru_tx_hook(CAN_FIFOMailBox_TypeDef *to_send) {
       subaru_ts_last = ts;
     }
 
-    if (violation != 0) {
+    if (violation) {
       tx = 0;
     }
 
