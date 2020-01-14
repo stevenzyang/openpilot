@@ -518,15 +518,16 @@ static void ui_init(UIState *s) {
   s->livecalibration_sock = SubSocket::create(s->ctx, "liveCalibration");
   s->radarstate_sock = SubSocket::create(s->ctx, "radarState");
 
+  // ENG UI START
+  s->gps_location_external_sock = SubSocket::create(s->ctx, "gpsLocationExternal");
+  // ENG UI END
+
   assert(s->model_sock != NULL);
   assert(s->controlsstate_sock != NULL);
   assert(s->uilayout_sock != NULL);
   assert(s->livecalibration_sock != NULL);
   assert(s->radarstate_sock != NULL);
-
-  // ENG UI START
-  s->gps_location_external_sock = SubSocket::create(s->ctx, "gpsLocationExternal");
-  // ENG UI END
+  assert(s->gps_location_external_sock != NULL);
 
   s->poller = Poller::create({
                               s->model_sock,
