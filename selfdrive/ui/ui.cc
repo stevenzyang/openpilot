@@ -223,6 +223,7 @@ typedef struct UIState {
   SubSocket *map_data_sock;
   SubSocket *uilayout_sock;
   // ENG UI START
+  SubSocket *thermal_sock;
   SubSocket *gps_location_external_sock;
   // ENG UI END
   Poller * poller;
@@ -519,6 +520,7 @@ static void ui_init(UIState *s) {
   s->radarstate_sock = SubSocket::create(s->ctx, "radarState");
 
   // ENG UI START
+  s->thermal_sock = SubSocket::create(s->ctx, "thermal");
   s->gps_location_external_sock = SubSocket::create(s->ctx, "gpsLocationExternal");
   // ENG UI END
 
@@ -527,6 +529,7 @@ static void ui_init(UIState *s) {
   assert(s->uilayout_sock != NULL);
   assert(s->livecalibration_sock != NULL);
   assert(s->radarstate_sock != NULL);
+  assert(s->thermal_sock != NULL);
   assert(s->gps_location_external_sock != NULL);
 
   s->poller = Poller::create({
@@ -535,6 +538,7 @@ static void ui_init(UIState *s) {
                               s->uilayout_sock,
                               s->livecalibration_sock,
                               s->radarstate_sock,
+                              s->thermal,
                               s->gps_location_external_sock
                              });
 
