@@ -538,7 +538,7 @@ static void ui_init(UIState *s) {
                               s->uilayout_sock,
                               s->livecalibration_sock,
                               s->radarstate_sock,
-                              s->thermal,
+                              s->thermal_sock,
                               s->gps_location_external_sock
                              });
 
