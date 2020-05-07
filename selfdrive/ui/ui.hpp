@@ -151,7 +151,6 @@ typedef struct UIScene {
   uint16_t maxCpuTemp;
   uint32_t maxBatTemp;
   float gpsAccuracy;
-  float freeSpace;
   float angleSteers;
   float angleSteersDes;
   // ENG UI END
@@ -226,7 +225,6 @@ typedef struct UIState {
   SubSocket *dmonitoring_sock;
   PubSocket *offroad_sock;
   // ENG UI START
-  SubSocket *thermal_sock;
   SubSocket *gps_location_external_sock;
   // ENG UI END
   Poller * poller;
