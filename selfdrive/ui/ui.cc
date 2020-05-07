@@ -228,6 +228,10 @@ static void ui_init(UIState *s) {
   s->dmonitoring_sock = SubSocket::create(s->ctx, "dMonitoringState");
   s->offroad_sock = PubSocket::create(s->ctx, "offroadLayout");
 
+  // ENG UI START
+  s->gps_location_external_sock = SubSocket::create(s->ctx, "gpsLocationExternal");
+  // ENG UI END
+
   assert(s->model_sock != NULL);
   assert(s->controlsstate_sock != NULL);
   assert(s->uilayout_sock != NULL);
@@ -239,6 +243,7 @@ static void ui_init(UIState *s) {
   assert(s->driverstate_sock != NULL);
   assert(s->dmonitoring_sock != NULL);
   assert(s->offroad_sock != NULL);
+  assert(s->gps_location_external_sock != NULL);
 
   s->poller = Poller::create({
                               s->model_sock,
@@ -250,7 +255,8 @@ static void ui_init(UIState *s) {
                               s->health_sock,
                               s->ubloxgnss_sock,
                               s->driverstate_sock,
-                              s->dmonitoring_sock
+                              s->dmonitoring_sock,
+                              s->gps_location_external_sock
                              });
 
 #ifdef SHOW_SPEEDLIMIT
@@ -396,6 +402,12 @@ void handle_message(UIState *s,  Message* msg) {
     scene.monitoring_active = data.getDriverMonitoringOn();
 
     scene.decel_for_model = data.getDecelForModel();
+
+    // ENG UI START
+    scene.angleSteers = data.getAngleSteers();
+    scene.angleSteersDes = data.getAngleSteersDes();
+    // ENG UI END
+
     auto alert_sound = data.getAlertSound();
     const auto sound_none = cereal::CarControl::HUDControl::AudibleAlert::NONE;
     if (alert_sound != s->alert_sound){
@@ -482,7 +494,8 @@ void handle_message(UIState *s,  Message* msg) {
     }
   } else if (which == cereal::Event::LIVE_MAP_DATA) {
     scene.map_valid = event.getLiveMapData().getMapValid();
-  } else if (which == cereal::Event::THERMAL) {
+
+ } else if (which == cereal::Event::THERMAL) {
     auto data = event.getThermal();
 
     scene.networkType = data.getNetworkType();
@@ -493,6 +506,23 @@ void handle_message(UIState *s,  Message* msg) {
     scene.thermalStatus = data.getThermalStatus();
     scene.paTemp = data.getPa0();
 
+    // ENG UI START
+    scene.maxCpuTemp = data.getCpu0();
+    if (scene.maxCpuTemp < data.getCpu1())
+    {
+      scene.maxCpuTemp = data.getCpu1();
+    }
+    else if (scene.maxCpuTemp < data.getCpu2())
+    {
+      scene.maxCpuTemp = data.getCpu2();
+    }
+    else if (scene.maxCpuTemp < data.getCpu3())
+    {
+      scene.maxCpuTemp = data.getCpu3();
+    }
+    scene.maxBatTemp = data.getBat();
+    // ENG UI END
+    
     s->thermal_started = data.getStarted();
   } else if (which == cereal::Event::UBLOX_GNSS) {
     auto data = event.getUbloxGnss();
@@ -513,6 +543,16 @@ void handle_message(UIState *s,  Message* msg) {
     scene.is_rhd = data.getIsRHD();
     scene.awareness_status = data.getAwarenessStatus();
     s->preview_started = data.getIsPreview();
+  // ENG UI START
+  } else if (which == cereal::Event::GPS_LOCATION_EXTERNAL) {
+    auto data = event.getGpsLocationExternal();
+    scene.gpsAccuracy = data.getAccuracy();
+    // set default values for display
+    if (scene.gpsAccuracy == 0 || scene.gpsAccuracy > 100)
+    {
+      scene.gpsAccuracy = 99.99;
+    }
+  // ENG UI END
   }
 
   s->started = s->thermal_started || s->preview_started ;
