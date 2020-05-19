@@ -159,10 +159,9 @@ Community Maintained Cars and Features
 | Subaru    | Crosstrek 2018-19             | EyeSight          | Stock            | 0mph               | 0mph         |
 | Subaru    | Forester 2017                 | EyeSight          | Stock            | 0mph               | 0mph         |
 | Subaru    | Impreza 2018-20               | EyeSight          | Stock            | 0mph               | 0mph         |
-| Volkswagen| Golf 2015-19                  | Driver Assistance | Stock            | 0mph               | 0mph         |
 | Subaru    | Legacy 2015-18                | EyeSight          | Stock            | 0mph               | 0mph         |
 | Subaru    | Outback 2015-18               | EyeSight          | Stock            | 0mph               | 0mph         |
-| Volkswagen| Golf 2016-19<sup>3</sup>      | Driver Assistance | Stock            | 0mph               | 0mph         |
+| Volkswagen| Golf 2015-19                  | Driver Assistance | Stock            | 0mph               | 0mph         |
 
 <sup>1</sup>Requires a [panda](https://comma.ai/shop/products/panda-obd-ii-dongle) and [community built giraffe](https://zoneos.com/volt/). ***NOTE: disconnecting the ASCM disables Automatic Emergency Braking (AEB).*** <br />
 <sup>2</sup>May require a custom connector for the developer [car harness](https://comma.ai/shop/products/car-harness) <br />
