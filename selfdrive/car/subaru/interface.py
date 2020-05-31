@@ -27,7 +27,7 @@ class CarInterface(CarInterfaceBase):
     ret.steerRateCost = 0.7
     ret.steerLimitTimer = 0.4
 
-    if candidate in [CAR.IMPREZA]:
+    if candidate == CAR.IMPREZA:
       ret.safetyModel = car.CarParams.SafetyModel.subaru
       ret.mass = 1568. + STD_CARGO_KG
       ret.wheelbase = 2.67
