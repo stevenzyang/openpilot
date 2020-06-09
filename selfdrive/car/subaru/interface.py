@@ -25,7 +25,6 @@ class CarInterface(CarInterfaceBase):
     # was never released
     ret.enableCamera = True
 
-    ret.steerRateCost = 0.7
     ret.steerLimitTimer = 0.4
 
     if candidate in [CAR.IMPREZA]:
@@ -33,10 +32,22 @@ class CarInterface(CarInterfaceBase):
       ret.wheelbase = 2.67
       ret.centerToFront = ret.wheelbase * 0.5
       ret.steerRatio = 15
+      ret.steerRateCost = 0.7
       ret.steerActuatorDelay = 0.4   # end-to-end angle controller
       ret.lateralTuning.pid.kf = 0.00005
       ret.lateralTuning.pid.kiBP, ret.lateralTuning.pid.kpBP = [[0., 20.], [0., 20.]]
       ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.2, 0.3], [0.02, 0.03]]
+
+    if candidate in [CAR.CROSSTREK2020]:
+      ret.mass = 1480. + STD_CARGO_KG
+      ret.wheelbase = 2.67
+      ret.centerToFront = ret.wheelbase * 0.5
+      ret.steerRatio = 13
+      ret.steerRateCost = 1
+      ret.steerActuatorDelay = 0.1   # end-to-end angle controller
+      ret.lateralTuning.pid.kf = 0.00003
+      ret.lateralTuning.pid.kiBP, ret.lateralTuning.pid.kpBP = [[0., 10., 20., 30.], [0., 10., 20., 30.]]
+      ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.01, 0.05, 0.2, 0.21], [0.0010, 0.004, 0.008, 0.009]]
 
     # TODO: get actual value, for now starting with reasonable value for
     # civic and scaling by mass and wheelbase
