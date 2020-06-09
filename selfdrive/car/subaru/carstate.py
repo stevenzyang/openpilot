@@ -117,9 +117,21 @@ class CarState(CarStateBase):
 
       ("Counter", "ES_Distance", 0),
       ("Signal1", "ES_Distance", 0),
+      ("Cruise_Fault", "ES_Distance", 0),
+      ("Cruise_Throttle", "ES_Distance", 0),
       ("Signal2", "ES_Distance", 0),
-      ("Main", "ES_Distance", 0),
+      ("Car_Follow", "ES_Distance", 0),
       ("Signal3", "ES_Distance", 0),
+      ("Cruise_Brake_Active", "ES_Distance", 0),
+      ("Distance_Swap", "ES_Distance", 0),
+      ("Cruise_EPB", "ES_Distance", 0),
+      ("Signal4", "ES_Distance", 0),
+      ("Close_Distance", "ES_Distance", 0),
+      ("Signal5", "ES_Distance", 0),
+      ("Cruise_Cancel", "ES_Distance", 0),
+      ("Cruise_Set", "ES_Distance", 0),
+      ("Cruise_Resume", "ES_Distance", 0),
+      ("Signal6", "ES_Distance", 0),
 
       ("Counter", "ES_LKAS_State", 0),
       ("Keep_Hands_On_Wheel", "ES_LKAS_State", 0),
@@ -129,24 +141,22 @@ class CarState(CarStateBase):
       ("Signal2", "ES_LKAS_State", 0),
       ("Backward_Speed_Limit_Menu", "ES_LKAS_State", 0),
       ("LKAS_ENABLE_3", "ES_LKAS_State", 0),
-      ("Signal3", "ES_LKAS_State", 0),
+      ("LKAS_Left_Line_Light_Blink", "ES_LKAS_State", 0),
       ("LKAS_ENABLE_2", "ES_LKAS_State", 0),
-      ("Signal4", "ES_LKAS_State", 0),
+      ("LKAS_Right_Line_Light_Blink", "ES_LKAS_State", 0),
       ("LKAS_Left_Line_Visible", "ES_LKAS_State", 0),
-      ("Signal6", "ES_LKAS_State", 0),
+      ("LKAS_Left_Line_Green", "ES_LKAS_State", 0),
       ("LKAS_Right_Line_Visible", "ES_LKAS_State", 0),
-      ("Signal7", "ES_LKAS_State", 0),
-      ("FCW_Cont_Beep", "ES_LKAS_State", 0),
-      ("FCW_Repeated_Beep", "ES_LKAS_State", 0),
-      ("Throttle_Management_Activated", "ES_LKAS_State", 0),
-      ("Traffic_light_Ahead", "ES_LKAS_State", 0),
-      ("Right_Depart", "ES_LKAS_State", 0),
-      ("Signal5", "ES_LKAS_State", 0),
+      ("LKAS_Right_Line_Green", "ES_LKAS_State", 0),
+      ("LKAS_Alert", "ES_LKAS_State", 0),
+      ("Signal3", "ES_LKAS_State", 0),
 
     ]
 
     checks = [
       ("ES_DashStatus", 10),
+      ("ES_Distance", 20),
+      ("ES_LKAS_State", 10),
     ]
 
     return CANParser(DBC[CP.carFingerprint]['pt'], signals, checks, 2)
