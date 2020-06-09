@@ -415,6 +415,7 @@ non_tested_cars = [
   TOYOTA.CHRH,
   TOYOTA.HIGHLANDERH,
   TOYOTA.HIGHLANDERH_TSS2,
+  SUBARU.CROSSTREK_2020,
 ]
 
 if __name__ == "__main__":
