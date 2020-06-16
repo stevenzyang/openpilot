@@ -1,4 +1,5 @@
 import os
+import time
 from common.params import Params
 from common.basedir import BASEDIR
 from selfdrive.car.fingerprints import eliminate_incompatible_cars, all_known_cars
@@ -94,6 +95,9 @@ def fingerprint(logcan, sendcan, has_relay):
     else:
       cloudlog.warning("Getting VIN & FW versions")
       _, vin = get_vin(logcan, sendcan, bus)
+      cloudlog.warning("Waiting 10 seconds")
+      # Subaru needs 10sec delay before FW queries
+      time.sleep(10)
       car_fw = get_fw_versions(logcan, sendcan, bus)
 
     fw_candidates = match_fw_to_car(car_fw)
