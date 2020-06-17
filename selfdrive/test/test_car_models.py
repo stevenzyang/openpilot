@@ -352,12 +352,20 @@ routes = {
     'carFingerprint': VOLKSWAGEN.GOLF,
     'enableCamera': True,
   },
-  "5ab784f361e19b78|2020-06-08--16-30-41": {
-    'carFingerprint': SUBARU.OUTBACK,
+  "95441c38ae8c130e_2020-06-08--12-10-17": {
+    'carFingerprint': SUBARU.FORESTER,
     'enableCamera': True,
   },
   "791340bc01ed993d|2019-03-10--16-28-08": {
     'carFingerprint': SUBARU.IMPREZA,
+    'enableCamera': True,
+  },
+  "df5ca7660000fba8|2020-06-16--17-37-19": {
+    'carFingerprint': SUBARU.LEGACY,
+    'enableCamera': True,
+  },
+  "5ab784f361e19b78|2020-06-08--16-30-41": {
+    'carFingerprint': SUBARU.OUTBACK,
     'enableCamera': True,
   },
   "fbbfa6af821552b9|2020-03-03--08-09-43": {
@@ -419,8 +427,6 @@ non_tested_cars = [
   TOYOTA.CHRH,
   TOYOTA.HIGHLANDERH,
   TOYOTA.HIGHLANDERH_TSS2,
-  SUBARU.LEGACY,
-  SUBARU.FORESTER,
 ]
 
 if __name__ == "__main__":
