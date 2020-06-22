@@ -123,14 +123,19 @@ FW_VERSIONS = {
       b'\x00\x00d\xdc\x1f@ \x0e',
     ],
     (Ecu.engine, 0x7e0, None): [
+      b'\xf1\x00\xa2\x10\t',
       b'\xaa\x61\x66\x73\x07',
       b'\xbeacr\a',
       b'\x01XH3J2B0R\x00\x00\x00\x00\x00\x00\x00\x00',
     ],
     (Ecu.transmission, 0x7e1, None): [
+      b'\xf1\x00\xa4\x10@',
       b'\xe3\xe5\x46\x31\x00',
       b'\xe4\xe5\x061\x00',
       b'\x01R3E54631\x00\x00\x00\x00\x00\x00\x00\x00',
+    ],
+    (Ecu.fwdRadar, 0x7d0, None): [
+      b'\xf1\x00\x00\x00\x02',
     ],
   },
   CAR.FORESTER: {
