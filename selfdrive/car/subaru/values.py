@@ -107,29 +107,33 @@ FW_VERSIONS = {
     # 2018 Impreza - ADM / @Michael
     # Ecu, addr, subaddr: ROM ID
     (Ecu.esp, 0x7b0, None): [
+      b'\xa2 \x193\x00',
       b'\x7a\x94\x3f\x90\x00',
       b'\xa2 \x185\x00',
     ],
     (Ecu.eps, 0x746, None): [
+      b'\x9a\xc0\x00\x00',
       b'\x7a\xc0\x0c\x00',
       b'z\xc0\b\x00',
     ],
     (Ecu.srs, 0x780, None): [
+      b'\x00\x92\x15&\x01',
       b'\x00\x92\x15\x16\x00',
       b'\x00\x92\x15\x05\x00',
     ],
     (Ecu.fwdCamera, 0x787, None): [
+      b'\x00\x00eb\x1f@ \"',
       b'\x00\x00\x64\xb5\x1f\x40\x20\x0e',
       b'\x00\x00d\xdc\x1f@ \x0e',
     ],
     (Ecu.engine, 0x7e0, None): [
-      b'\xf1\x00\xa2\x10\t',
+      b'\xca!`0\a',
       b'\xaa\x61\x66\x73\x07',
       b'\xbeacr\a',
       b'\x01XH3J2B0R\x00\x00\x00\x00\x00\x00\x00\x00',
     ],
     (Ecu.transmission, 0x7e1, None): [
-      b'\xf1\x00\xa4\x10@',
+      b'\xe6\xf5$\x00\x00',
       b'\xe3\xe5\x46\x31\x00',
       b'\xe4\xe5\x061\x00',
       b'\x01R3E54631\x00\x00\x00\x00\x00\x00\x00\x00',
