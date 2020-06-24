@@ -139,7 +139,7 @@ FW_VERSIONS = {
       b'\x01R3E54631\x00\x00\x00\x00\x00\x00\x00\x00',
     ],
     (Ecu.fwdRadar, 0x7d0, None): [
-      b'\xf1\x00\x00\x00\x02',
+      b'\x00\x00\x01',
     ],
   },
   CAR.FORESTER: {
